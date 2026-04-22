@@ -1,0 +1,259 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #f8f9fc;
+    color: #2a2f3e;
+    font-family: 'Inter', 'Nunito', system-ui, sans-serif;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .dark body {
+    background-color: #13161f;
+    color: #e2e5ef;
+  }
+
+  ::-webkit-scrollbar { width: 7px; }
+  ::-webkit-scrollbar-track { background: #f1f3f8; }
+  ::-webkit-scrollbar-thumb { background: #d1d5e0; border-radius: 10px; }
+  ::-webkit-scrollbar-thumb:hover { background: #b0b5c5; }
+
+  .dark ::-webkit-scrollbar-track { background: #1e2230; }
+  .dark ::-webkit-scrollbar-thumb { background: #3a3f52; border-radius: 10px; }
+  .dark ::-webkit-scrollbar-thumb:hover { background: #4c5268; }
+}
+
+@layer components {
+  .card {
+    background: #ffffff;
+    border: 1px solid #e4e7ef;
+    border-radius: 1rem;
+    box-shadow: 0 2px 15px -3px rgba(0,0,0,0.07), 0 10px 20px -2px rgba(0,0,0,0.04);
+    transition: all 0.2s ease;
+  }
+  .dark .card {
+    background: #1e2230;
+    border-color: #2a2f3e;
+    box-shadow: 0 2px 15px -3px rgba(0,0,0,0.3);
+  }
+
+  .card-hover:hover {
+    box-shadow: 0 10px 40px -10px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+  }
+  .dark .card-hover:hover {
+    box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-family: 'Nunito', 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.025em;
+    transition: all 0.2s ease;
+    background: linear-gradient(135deg, #4c6ef5, #748ffc);
+    color: white;
+    box-shadow: 0 4px 14px rgba(76, 110, 245, 0.3);
+    border: none;
+    cursor: pointer;
+  }
+  .btn-primary:hover {
+    box-shadow: 0 6px 20px rgba(76, 110, 245, 0.45);
+    transform: translateY(-1px);
+  }
+  .btn-primary:active { transform: translateY(0); }
+  .btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-family: 'Nunito', 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.025em;
+    transition: all 0.2s ease;
+    background: rgba(76, 110, 245, 0.08);
+    color: #4c6ef5;
+    border: 1px solid rgba(76, 110, 245, 0.2);
+    cursor: pointer;
+  }
+  .btn-secondary:hover {
+    background: rgba(76, 110, 245, 0.14);
+    border-color: rgba(76, 110, 245, 0.4);
+    transform: translateY(-1px);
+  }
+  .dark .btn-secondary {
+    background: rgba(92, 124, 250, 0.1);
+    color: #91a7ff;
+    border-color: rgba(92, 124, 250, 0.2);
+  }
+  .dark .btn-secondary:hover {
+    background: rgba(92, 124, 250, 0.18);
+    border-color: rgba(92, 124, 250, 0.4);
+  }
+
+  .btn-success {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-family: 'Nunito', 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.025em;
+    transition: all 0.2s ease;
+    background: linear-gradient(135deg, #10b981, #34d399);
+    color: white;
+    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.25);
+    border: none;
+    cursor: pointer;
+  }
+  .btn-success:hover {
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    color: #6b7280;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-ghost:hover {
+    background: rgba(0,0,0,0.05);
+    color: #374151;
+  }
+  .dark .btn-ghost { color: #9ca3af; }
+  .dark .btn-ghost:hover {
+    background: rgba(255,255,255,0.06);
+    color: #e5e7eb;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .badge-brand {
+    background: rgba(76, 110, 245, 0.1);
+    color: #4c6ef5;
+  }
+  .dark .badge-brand {
+    background: rgba(92, 124, 250, 0.15);
+    color: #91a7ff;
+  }
+  .badge-success {
+    background: rgba(16, 185, 129, 0.1);
+    color: #059669;
+  }
+  .dark .badge-success {
+    background: rgba(16, 185, 129, 0.15);
+    color: #34d399;
+  }
+  .badge-danger {
+    background: rgba(239, 68, 68, 0.1);
+    color: #dc2626;
+  }
+  .dark .badge-danger {
+    background: rgba(239, 68, 68, 0.15);
+    color: #f87171;
+  }
+  .badge-warm {
+    background: rgba(240, 140, 58, 0.1);
+    color: #d97722;
+  }
+  .dark .badge-warm {
+    background: rgba(240, 140, 58, 0.15);
+    color: #ffb380;
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #9ca3af;
+  }
+  .dark .section-label { color: #6b7280; }
+
+  .text-muted { color: #6b7280; }
+  .dark .text-muted { color: #9ca3af; }
+
+  .text-heading {
+    font-family: 'Nunito', 'Inter', sans-serif;
+    font-weight: 700;
+    color: #1f2937;
+  }
+  .dark .text-heading { color: #f3f4f6; }
+}
+
+/* Range slider */
+input[type="range"] {
+  -webkit-appearance: none;
+  height: 6px;
+  background: linear-gradient(90deg, #4c6ef5, #748ffc);
+  border-radius: 999px;
+  outline: none;
+}
+.dark input[type="range"] {
+  background: linear-gradient(90deg, #4263eb, #5c7cfa);
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(76, 110, 245, 0.35);
+  border: 3px solid #4c6ef5;
+  transition: box-shadow 0.2s;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+  box-shadow: 0 2px 12px rgba(76, 110, 245, 0.5);
+}
+.dark input[type="range"]::-webkit-slider-thumb {
+  background: #1e2230;
+  border-color: #748ffc;
+}
+
+/* Progress bar */
+.progress-bar {
+  background: linear-gradient(90deg, #4c6ef5, #748ffc);
+  border-radius: 999px;
+  box-shadow: 0 0 8px rgba(76, 110, 245, 0.3);
+}
